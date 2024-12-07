@@ -1,0 +1,11 @@
+.btn-gradient-primary{
+    background: linear-gradient(270deg, #6B419A 50%, #104896 100%) !important;
+}
+
+.hightlighted_tab{
+    border-bottom-color: #104896;
+}
+
+.text-primary-cts{
+    color: #104896;
+}

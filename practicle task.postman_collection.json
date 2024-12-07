@@ -1,0 +1,412 @@
+{
+	"info": {
+		"_postman_id": "e49e197e-464c-43a5-9b61-0baa1f30d986",
+		"name": "practicle task",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "40249969"
+	},
+	"item": [
+		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "Signup",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "profile_image",
+									"type": "file",
+									"src": "/C:/Users/testh/Downloads/zieben-vh-w-8YqUh5B7Y-unsplash.jpg"
+								},
+								{
+									"key": "name",
+									"value": "ashish",
+									"type": "default"
+								},
+								{
+									"key": "email",
+									"value": "ashish@gmail.com",
+									"type": "default"
+								},
+								{
+									"key": "password",
+									"value": "123456",
+									"type": "default"
+								},
+								{
+									"key": "password_confirmation",
+									"value": "123456",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/singup",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"singup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMDAvYXBpL3NpZ251cCIsImlhdCI6MTczMzQ4NTIxNSwiZXhwIjoxNzMzNDg4ODE1LCJuYmYiOjE3MzM0ODUyMTUsImp0aSI6IkY2N1gxS2hrSW5TY0JibUEiLCJzdWIiOiIxIiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.W_oIs_N-suh3q6rAjQzL13Z8jCtQ-D9q-9Hnem0FDak",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\" : \"ashish@gmail.com\",\r\n    \"password\" : \"123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "profile",
+			"item": [
+				{
+					"name": "me",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMDAvYXBpL3NpZ251cCIsImlhdCI6MTczMzQ4NTIxNSwiZXhwIjoxNzMzNDg4ODE1LCJuYmYiOjE3MzM0ODUyMTUsImp0aSI6IkY2N1gxS2hrSW5TY0JibUEiLCJzdWIiOiIxIiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.W_oIs_N-suh3q6rAjQzL13Z8jCtQ-D9q-9Hnem0FDak",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8000/api/me",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"me"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all users",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNzMzNTcyOTYwLCJleHAiOjE3MzM1NzY1NjAsIm5iZiI6MTczMzU3Mjk2MCwianRpIjoiYVRBQzFSelloNUpYY3FwRSIsInN1YiI6IjEiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.k98DRGu9f9Wgvx0jya5dSdqSJ9XE_76HxGda3bWB0Go",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "profile_image",
+									"type": "file",
+									"src": "/C:/Users/testh/Downloads/zieben-vh-w-8YqUh5B7Y-unsplash.jpg"
+								},
+								{
+									"key": "name",
+									"value": "yagnesh chavda",
+									"type": "default"
+								},
+								{
+									"key": "email",
+									"value": "yagnesh@gmail.com",
+									"type": "default"
+								},
+								{
+									"key": "password",
+									"value": "123456",
+									"type": "default"
+								},
+								{
+									"key": "password_confirmation",
+									"value": "123456",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/users/all",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"users",
+								"all"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "posts",
+			"item": [
+				{
+					"name": "create post",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNzMzNTkxMTA4LCJleHAiOjE3MzM1OTQ3MDgsIm5iZiI6MTczMzU5MTEwOCwianRpIjoieUphUzVmTEhFMWtJbXlzQiIsInN1YiI6IjEiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.dNkAMfp1msOMFEF8IkqRpZ8DNezNBNJ6EeXgFMOrW2Q",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "title",
+									"value": "my title",
+									"type": "text"
+								},
+								{
+									"key": "subtitle",
+									"value": "my sub title",
+									"type": "text"
+								},
+								{
+									"key": "introduction",
+									"value": "my introduction",
+									"type": "text"
+								},
+								{
+									"key": "paragraph[]",
+									"value": "my para 2",
+									"type": "text"
+								},
+								{
+									"key": "paragraph[]",
+									"value": "my paragraph 1",
+									"type": "text"
+								},
+								{
+									"key": "images[]",
+									"type": "file",
+									"src": "/C:/Users/testh/Downloads/sven-ciupka-fxGVHxyEFvY-unsplash.jpg"
+								},
+								{
+									"key": "images[]",
+									"type": "file",
+									"src": "/C:/Users/testh/Downloads/alexandr_bendus-0kHa0NjKQ2M-unsplash.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/posts/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"posts",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "like post",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNzMzNTY3NDkzLCJleHAiOjE3MzM1NzEwOTMsIm5iZiI6MTczMzU2NzQ5MywianRpIjoidHE2b2lnenRUa3NGYm9UOSIsInN1YiI6IjEiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.9B4GEK7MJTC_hixStvq5JzrSxjBsH2wsWyZWZyRxEMc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"post_id\" : 2\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/like/toggle",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"like",
+								"toggle"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all posts",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNzMzNTcyOTYwLCJleHAiOjE3MzM1NzY1NjAsIm5iZiI6MTczMzU3Mjk2MCwianRpIjoiYVRBQzFSelloNUpYY3FwRSIsInN1YiI6IjEiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.k98DRGu9f9Wgvx0jya5dSdqSJ9XE_76HxGda3bWB0Go",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/posts/all",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"posts",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Post Detail",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNzMzNTcyOTYwLCJleHAiOjE3MzM1NzY1NjAsIm5iZiI6MTczMzU3Mjk2MCwianRpIjoiYVRBQzFSelloNUpYY3FwRSIsInN1YiI6IjEiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.k98DRGu9f9Wgvx0jya5dSdqSJ9XE_76HxGda3bWB0Go",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/posts/all",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"posts",
+								"all"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
